@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="contenedor">
+    <div id="contenedor">
         <div class="contenedorMenu">
             <h2 id="titulo">Bienvenido al cajero ACME</h2>
             <p><Strong>Menu</Strong></p>
@@ -19,8 +19,16 @@
             <input type="button" value="Pagar servicios">
             <input id="btnSalirDelPrograma" type="button" value="Salir del programa">
         </div>
-        <div class="contenedorOperacion">Esperando opcion</div>
-    
+        <div class="contenedorOperacion">
+            <div id="login">
+                <h3>Crear cuenta nueva</h3>
+                <input class="displayBlock" type="text" id="numDocumento" placeholder="Numero de documento" required>
+                <input class="displayBlock" type="text" id="nombre" placeholder="Nombre Completo" required>
+                <input class="displayBlock" type="text" id="clave" placeholder="Escriba su contraseña" required>
+            </div>
+
+            <!-- <div id="operacion">...Esperando opcion...</div> -->
+        </div>
     </div>
     
 

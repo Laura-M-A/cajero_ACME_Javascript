@@ -1,23 +1,42 @@
+* {
+    padding: 5px;
+    text-align: center;
+
+}
+
+.displayBlock{
+    display: block;
+}
+
 .contenedorMenu {
     margin-left:25%;
-    text-align: center;
-    background-color: brown;
+
+    background-color: rgb(211, 100, 100);
     width: 50%;
     padding-bottom: 20px;
 }
 
 .contenedorOperacion {
+    color: aliceblue;
+    padding: 20px;
     margin-top: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
     margin-left:25%;
-    text-align: center;
-    background-color: gray;
+    background-color: rgb(109, 81, 81);
+    width: 48.5%;
+}
+
+#finPrograma {
+    padding: 20px;
+    background-color: rgb(211, 100, 100);
+    margin-left:25%;
     width: 50%;
 
-    
+}
+
+#login{
+    justify-content: center;
 }
 
 #titulo {
-    padding-top: 20px;
+    padding: 20px;
 }

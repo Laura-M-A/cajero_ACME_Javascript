@@ -13,25 +13,14 @@ function login(usuarios){
     }
 }
 
-
-// let opc
-// let usuarios = new Map()
-
-// let menu = ("Bienvenido al CAJERO ACME \n \n" +
-//     "(1)  \n" +
-//     "(2)  \n" +
-//     "(3)  \n" +
-//     "(4)  \n" +
-//     "(5)  \n" +
-//     "(0)  \n"
-// )
-
-if (localStorage.getItem("usuarios")) {
-    let usuariosGuardados = JSON.parse(localStorage.getItem("usuarios"));
+// if (localStorage.getItem("usuarios")) {
+//     let usuariosGuardados = JSON.parse(localStorage.getItem("usuarios"));
     
-    // Convertir el array de nuevo a un Map
-    usuarios = new Map(usuariosGuardados);
-}
+//     // Convertir el array de nuevo a un Map
+//     usuarios = new Map(usuariosGuardados);
+// }
+
+let numCuenta = 1
 
 const btnCrearCuenta = document.getElementById("btnCrearCuenta")
 const btnConsignar = document.getElementById("btnConsignar")
@@ -40,27 +29,42 @@ const btnPagarServicios = document.getElementById("btnPagarServicios")
 const btnSalirDelPrograma = document.getElementById("btnSalirDelPrograma")
 
 const contenedor = document.getElementById("contenedor")
+const operacion = document.getElementById("operacion")
 
 btnCrearCuenta.addEventListener("click", ()=>{
-    alert("Hola :3")
+    // operacion.innerHTML = ""
+
+    let infoCuenta = {
+        numDocumento: document.getElementById("numDocumento").value,
+        nombre: document.getElementById("nombre").value,
+        clave: document.getElementById("clave").value,
+        saldo: 0,
+        historial: []
+    }    
+
+    alert("Informacion guardada")
+
+
+    let usuarios = {
+        numCuenta, infoCuenta
+    }
+    numCuenta ++
+
+    console.log(usuarios)
+    console.log(usuarios("nombre"))
+    console.log("hola")
+
 })
 
 
-btnSalirDelPrograma.addEventListener("click", ()=>{
-    alert("Hola")
-    contenedor.innerText= "<h2>¡Gracias por usar nuestros servicios!</h2>"
-})
 
-// while (opc != "0") {
-//     let log = false
-//     alert(menu)
-//     opc = prompt("Seleccione la tarea que desea realizar:")
-//     switch (opc) {
+
+
 //         case "1":
 //             alert("(1) Crear una cuenta bancaria")
 //             let numCuenta = prompt("Escriba su numero de cuenta")
-//             let numDocumento = prompt("Escriba su numero de documento")
-//             let nombre = prompt("Escriba su nombre completo")
+
+
 //             let clave = prompt("Escriba su contraseña")
 
 //             let infoCuenta = {
@@ -168,3 +172,7 @@ btnSalirDelPrograma.addEventListener("click", ()=>{
 // }
 
 
+btnSalirDelPrograma.addEventListener("click", ()=>{
+    alert("Cerrando programa...")
+    contenedor.innerHTML= "<h2 id='finPrograma' >¡Gracias por usar nuestros servicios!</h2>"
+})

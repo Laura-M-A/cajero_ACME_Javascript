@@ -1,0 +1,23 @@
+.contenedorMenu {
+    margin-left:25%;
+    text-align: center;
+    background-color: brown;
+    width: 50%;
+    padding-bottom: 20px;
+}
+
+.contenedorOperacion {
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left:25%;
+    text-align: center;
+    background-color: gray;
+    width: 50%;
+
+    
+}
+
+#titulo {
+    padding-top: 20px;
+}

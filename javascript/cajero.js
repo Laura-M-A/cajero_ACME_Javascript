@@ -13,6 +13,8 @@ function login(usuarios){
     }
 }
 
+
+
 // if (localStorage.getItem("usuarios")) {
 //     let usuariosGuardados = JSON.parse(localStorage.getItem("usuarios"));
     
@@ -20,65 +22,72 @@ function login(usuarios){
 //     usuarios = new Map(usuariosGuardados);
 // }
 
-let numCuenta = 1
 
-const btnCrearCuenta = document.getElementById("btnCrearCuenta")
-const btnConsignar = document.getElementById("btnConsignar")
-const btnRetirar = document.getElementById("btnRetirar")
-const btnPagarServicios = document.getElementById("btnPagarServicios")
-const btnSalirDelPrograma = document.getElementById("btnSalirDelPrograma")
+
+let usuarios
+let numCuenta
+let usuariosJSON = localStorage.getItem("usuarios");
+
+usuarios = usuariosJSON ? JSON.parse(usuariosJSON) : {};
+numCuenta = Object.keys(usuarios).length;
+
+
+const opcCrearCuenta = document.getElementById("opcCrearCuenta") //YA :D
+const opcConsignar = document.getElementById("opcConsignar")
+const opcRetirar = document.getElementById("opcRetirar")
+const opcPagarServicios = document.getElementById("opcPagarServicios")
+const opcSalirDelPrograma = document.getElementById("opcSalirDelPrograma")
+
 
 const contenedor = document.getElementById("contenedor")
-const operacion = document.getElementById("operacion")
-
-btnCrearCuenta.addEventListener("click", ()=>{
-    // operacion.innerHTML = ""
-
-    let infoCuenta = {
-        numDocumento: document.getElementById("numDocumento").value,
-        nombre: document.getElementById("nombre").value,
-        clave: document.getElementById("clave").value,
-        saldo: 0,
-        historial: []
-    }    
-
-    alert("Informacion guardada")
+const operacion = document.getElementById("contenedorOperacion")
 
 
-    let usuarios = {
-        numCuenta, infoCuenta
-    }
-    numCuenta ++
+opcCrearCuenta.addEventListener("click", ()=> {
+        operacion.innerHTML = `
+                <div id="login">
+                    <h3>Crear cuenta nueva</h3>
+                    <div id="crearCuenta" >
+                        <p><input  type="text" id="numDocumento" placeholder="Numero de documento" required></p>    
+                        <p><input  type="text" id="nombre" placeholder="Nombre Completo" required></p>
+                        <p><input  type="text" id="clave" placeholder="Escriba su contraseña" required></p>    
+                        <p><input  type="button" id="btnCrearCuenta" value="Crear Cuenta"></p>
+                    </div>
+                </div>`
 
-    console.log(usuarios)
-    console.log(usuarios("nombre"))
-    console.log("hola")
+        const btnCrearCuenta = document.getElementById("btnCrearCuenta")
 
-})
+        btnCrearCuenta.addEventListener("click", ()=>{
+            let infoCuenta = {
+                numDocumento: document.getElementById("numDocumento").value,
+                nombre: document.getElementById("nombre").value,
+                clave: document.getElementById("clave").value,
+                saldo: 0,
+                historial: []
+            }   
+
+            numCuenta ++
+            usuarios[numCuenta] = infoCuenta
+            
+    
+            let usuariosJSON = JSON.stringify(usuarios);
+            localStorage.setItem("usuarios", usuariosJSON);
+            console.log(usuarios)
+            alert("Informacion guardada")
+        })
+    })
 
 
+opcConsignar.addEventListener("click", ()=>{
+    let valorConsignar = document.getElementById("numeroCuentaParaConsignar")
+    
+    })
+    
 
 
 
 //         case "1":
-//             alert("(1) Crear una cuenta bancaria")
-//             let numCuenta = prompt("Escriba su numero de cuenta")
 
-
-//             let clave = prompt("Escriba su contraseña")
-
-//             let infoCuenta = {
-//                 numDocumento: numDocumento,
-//                 nombre: nombre,
-//                 clave , clave,
-//                 saldo: 0,
-//                 movimientos: []
-//             }
-//             usuarios.set( numCuenta, infoCuenta);
-
-//             let usuariosArray = Array.from(usuarios);
-//             localStorage.setItem("usuarios", JSON.stringify(usuariosArray));
-//             break;  
 
 
 //         case "2":

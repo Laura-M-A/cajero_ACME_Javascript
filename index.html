@@ -13,26 +13,22 @@
             <h2 id="titulo">Bienvenido al cajero ACME</h2>
             <p><Strong>Menu</Strong></p>
             <p>Escriba la opcion que desea</p>
-            <input id="btnCrearCuenta" type="button" value="Crear una cuenta bancaria">
-            <input type="button" value="Consignar dinero a una cuenta">
+            <input id="opcCrearCuenta" type="button" value="Crear una cuenta bancaria">
+            <input id="opcConsignar" type="button" value="Consignar dinero a una cuenta">
             <input type="button" value="Retirar dinero">
             <input type="button" value="Pagar servicios">
             <input id="btnSalirDelPrograma" type="button" value="Salir del programa">
         </div>
-        <div class="contenedorOperacion">
-            <div id="login">
-                <h3>Crear cuenta nueva</h3>
-                <input class="displayBlock" type="text" id="numDocumento" placeholder="Numero de documento" required>
-                <input class="displayBlock" type="text" id="nombre" placeholder="Nombre Completo" required>
-                <input class="displayBlock" type="text" id="clave" placeholder="Escriba su contraseña" required>
+        <div id="contenedorOperacion">
+            <div id="operacion">...Esperando opcion...</div>
+            <div>
+                <input type="text" id="numeroCuentaParaConsignar" value="Escriba el valor a consignar">
             </div>
-
-            <!-- <div id="operacion">...Esperando opcion...</div> -->
         </div>
     </div>
     
 
-    <script src="cajero.js"></script>
+    <script src="javascript/cajero.js"></script>
 </body>
 
 

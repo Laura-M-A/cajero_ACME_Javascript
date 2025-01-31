@@ -199,6 +199,68 @@ opcRetirar.addEventListener("click", async () => {
 });
 
 
+opcPagarServicios.addEventListener("click", async () => { 
+    let loginResult = await login(); // await para esperar la respuesta de login()
+    console.log(loginResult.numCuenta)
+    console.log(loginResult.exito)
+    if (loginResult) {
+        operacion.innerHTML=` 
+            <div>
+                <p>¿Cual es el precio del recibo?</p>
+                <p><input type="number" id="cantidadRetirar" placeholder="Precio"></p> 
+                <p><input type="button" id="btnPagarRecibo" value="Pagar"></p>
+            </div>`
+
+
+        const btnPagarRecibo = document.getElementById("btnPagarRecibo")
+
+        btnPagarRecibo.addEventListener("click", ()=>{
+            const cantidadRetirar = parseInt(document.getElementById("cantidadRetirar").value)
+            operacion.innerHTML=` 
+                <div>
+                    <p>¿Que servicio desea pagar?</p>
+                    <p><button id="boton1">Energia</button></p> 
+                    <p><button id="boton2">Agua</button></p> 
+                    <p><button id="boton3">Gas</button></p> 
+                </div>`
+
+                for (let key in usuarios){
+
+                    if (parseInt(key) == loginResult.numCuenta){
+                        console.log(cantidadRetirar)
+                        console.log(usuarios[key].saldo)
+                        if (cantidadRetirar <= usuarios[key].saldo){
+
+                            usuarios[key].saldo -= cantidadRetirar
+                            usuarios = JSON.stringify(usuarios)
+                            localStorage.setItem("usuarios", usuarios)
+
+                            const boton1 = document.getElementById("boton1");
+                            const boton2 = document.getElementById("boton2");
+                            const boton3 = document.getElementById("boton3");
+
+                            boton1.addEventListener("click", () => {
+                                operacion.innerHTML = "<h3>Has pagado el recibo de la energia</p>";
+                            });
+                            
+                            boton2.addEventListener("click", () => {
+                                operacion.innerHTML = "<h3>Has pagado el recibo del agua</p>";
+                            });
+                            
+                            boton3.addEventListener("click", () => {
+                                operacion.innerHTML = "<h3>Has pagado el recibo del gas</p>";
+                            });
+            }   
+        }
+    }
+        })
+        
+    } else {
+
+        console.log("Login fallido");
+    }
+});
+
 // let loginResult = false
 // console.log(login(usuarios))
 
